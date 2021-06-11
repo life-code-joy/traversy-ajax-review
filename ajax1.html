@@ -7,9 +7,22 @@
   </head>
   <body>
     <button id="button">Get Text File</button>
+
     <script>
       function loadText() {
+        // instantiate a new XHR Object
+
+        const xhr = new XMLHttpRequest();
         console.log("button clicked");
+        console.log(xhr); // check out the object
+        // open- type, url/file/, async/sync(true or false)
+        xhr.open("GET", "./sample.txt", true);
+        xhr.onload = function () {
+          if (this.status === 200) {
+            // console.log(this.responseText);
+          }
+        };
+        xhr.send();
       }
 
       document.getElementById("button").addEventListener("click", loadText);
